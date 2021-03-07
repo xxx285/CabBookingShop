@@ -118,6 +118,45 @@ namespace xuyang.CabBookingShop.Infrastructure.Services
             return summaries;
         }
 
+        public async Task<BookingDetailResponseModel> GetBookingById(int id)
+        {
+            var history = await _bookingRepository.GetById(id);
+            if (history == null)
+                return null;
+            var returnedBooking = new BookingDetailResponseModel
+            {
+                PickUpAddress = history.PickUpAddress,
+                BookingDate = history.BookingDate,
+                BookingTime = history.BookingTime,
+                CabTypeId = history.CabTypeId,
+                ContactNo = history.ContactNo,
+                Email = history.Email,
+                FromPlaceId = history.FromPlaceId,
+                Landmark = history.Landmark,
+                PickupDate = history.PickupDate,
+                PickupTime = history.PickupTime,
+                Status = history.Status,
+                ToPlaceId = history.ToPlaceId,
+                Id = history.Id,
+                CabType = new CabTypeResponseModel
+                {
+                    CabTypeId = history.CabType.CabTypeId,
+                    CabTypeName = history.CabType.CabTypeName
+                },
+                FromPlace = new PlaceResponseModel
+                {
+                    PlaceId = history.FromPlace.PlaceId,
+                    PlaceName = history.FromPlace.PlaceName
+                },
+                ToPlace = new PlaceResponseModel
+                {
+                    PlaceId = history.ToPlace.PlaceId,
+                    PlaceName = history.ToPlace.PlaceName
+                }
+            };
+            return returnedBooking;
+        }
+
         public async Task<BookingDetailResponseModel> UpdateBooking(BookingUpdateRequestModel bookingUpdateRequestModel)
         {
             var booking = new Booking

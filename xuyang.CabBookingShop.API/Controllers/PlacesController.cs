@@ -70,5 +70,15 @@ namespace xuyang.CabBookingShop.API.Controllers
                 return StatusCode(500);
             return Ok(updatedPlace);
         }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetPlaceById([FromRoute] int id)
+        {
+            var place = await _placeService.GetPlaceById(id);
+            if (place == null)
+                return NotFound();
+            return Ok(place);
+        }
     }
 }

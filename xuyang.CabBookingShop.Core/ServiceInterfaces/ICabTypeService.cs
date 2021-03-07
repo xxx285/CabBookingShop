@@ -15,5 +15,6 @@ namespace xuyang.CabBookingShop.Core.ServiceInterfaces
         Task<CabTypeResponseModel> UpdateCabType(CabTypeUpdateRequestModel cabTypeUpdateRequestModel);
         Task<CabTypeResponseModel> DeleteCabTypeById(int id);
         Task<CabTypeResponseModel> AddCabType(CabTypeCreateRequestModel cabTypeRequestModel);
+        Task<CabTypeResponseModel> GetCabTypeById(int id);
     }
 }

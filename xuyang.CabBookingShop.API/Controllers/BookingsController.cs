@@ -58,5 +58,15 @@ namespace xuyang.CabBookingShop.API.Controllers
                 return StatusCode(500);
             return Ok(updatedBooking);
         }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetBookingById([FromRoute] int id)
+        {
+            var booking = await _bookingService.GetBookingById(id);
+            if (booking == null)
+                return NotFound();
+            return Ok(booking);
+        }
     }
 }

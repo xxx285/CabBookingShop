@@ -65,6 +65,12 @@ namespace xuyang.CabBookingShop.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "xuyang.CabBookingShop.API v1"));
             }
 
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins(Configuration.GetValue<string>("clientSPAUrl")).AllowAnyHeader()
+                    .AllowAnyMethod().AllowCredentials();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

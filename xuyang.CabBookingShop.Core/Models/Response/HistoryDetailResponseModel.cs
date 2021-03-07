@@ -24,5 +24,9 @@ namespace xuyang.CabBookingShop.Core.Models.Response
         public string CompTime { get; set; }
         public decimal? Charge { get; set; }
         public string Feedback { get; set; }
+
+        public PlaceResponseModel ToPlace { get; set; }
+        public PlaceResponseModel FromPlace { get; set; }
+        public CabTypeResponseModel CabType { get; set; }
     }
 }

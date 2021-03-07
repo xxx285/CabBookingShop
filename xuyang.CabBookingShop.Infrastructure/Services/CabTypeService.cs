@@ -66,6 +66,19 @@ namespace xuyang.CabBookingShop.Infrastructure.Services
             return responseModels;
         }
 
+        public async Task<CabTypeResponseModel> GetCabTypeById(int id)
+        {
+            var type = await _cabTypeRepository.GetById(id);
+            if (type == null)
+                return null;
+            var returned = new CabTypeResponseModel
+            {
+                CabTypeId = type.CabTypeId,
+                CabTypeName = type.CabTypeName
+            };
+            return returned;
+        }
+
         public async Task<CabTypeResponseModel> UpdateCabType(CabTypeUpdateRequestModel cabTypeUpdateRequestModel)
         {
             var type = new CabType

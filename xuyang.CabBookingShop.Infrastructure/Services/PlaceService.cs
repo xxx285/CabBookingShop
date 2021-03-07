@@ -66,6 +66,19 @@ namespace xuyang.CabBookingShop.Infrastructure.Services
             return responseModels;
         }
 
+        public async Task<PlaceResponseModel> GetPlaceById(int id)
+        {
+            var place = await _placeRepository.GetById(id);
+            if (place == null)
+                return null;
+            var returnedPlace = new PlaceResponseModel
+            {
+                PlaceId = place.PlaceId,
+                PlaceName = place.PlaceName
+            };
+            return returnedPlace;
+        }
+
         public async Task<PlaceResponseModel> UpdatePlace(PlaceUpdateRequestModel placeUpdateRequestModel)
         {
             var place = new Place

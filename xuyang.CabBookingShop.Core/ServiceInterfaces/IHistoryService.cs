@@ -14,5 +14,6 @@ namespace xuyang.CabBookingShop.Core.ServiceInterfaces
         Task<HistoryDetailResponseModel> DeleteHistoryById(int id);
         Task<HistoryDetailResponseModel> AddHistory(HistoryCreateRequestModel historyCreateRequestModel);
         Task<HistoryDetailResponseModel> UpdateHistory(HistoryUpdateRequestModel historyUpdateRequestModel);
+        Task<HistoryDetailResponseModel> GetHistoryById(int id);
     }
 }

@@ -21,5 +21,9 @@ namespace xuyang.CabBookingShop.Core.Models.Response
         public int? CabTypeId { get; set; }
         public string ContactNo { get; set; }
         public string Status { get; set; }
+
+        public PlaceResponseModel ToPlace { get; set; }
+        public PlaceResponseModel FromPlace { get; set; }
+        public CabTypeResponseModel CabType { get; set; }
     }
 }

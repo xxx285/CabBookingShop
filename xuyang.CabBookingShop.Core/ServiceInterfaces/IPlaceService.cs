@@ -14,5 +14,6 @@ namespace xuyang.CabBookingShop.Core.ServiceInterfaces
         Task<PlaceResponseModel> AddPlace(PlaceCreateRequestModel placeCreateRequestModel);
         Task<PlaceResponseModel> DeletePlaceById(int id);
         Task<PlaceResponseModel> UpdatePlace(PlaceUpdateRequestModel placeUpdateRequestModel);
+        Task<PlaceResponseModel> GetPlaceById(int id);
     }
 }

@@ -40,7 +40,8 @@ namespace xuyang.CabBookingShop.Infrastructure.Repositories
 
         public async Task<Booking> GetById(int id)
         {
-            return await _dbContext.Set<Booking>().FindAsync(id);
+            return await _dbContext.Bookings.Include(b => b.CabType).Include(b => b.ToPlace)
+                .Include(b => b.FromPlace).FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<Booking> UpdateAsync(Booking booking)

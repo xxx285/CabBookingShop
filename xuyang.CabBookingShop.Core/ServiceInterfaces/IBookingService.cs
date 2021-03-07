@@ -14,5 +14,6 @@ namespace xuyang.CabBookingShop.Core.ServiceInterfaces
         Task<BookingDetailResponseModel> DeleteBookingById(int id);
         Task<BookingDetailResponseModel> AddBooking(BookingCreateRequestModel bookingCreateRequestModel);
         Task<BookingDetailResponseModel> UpdateBooking(BookingUpdateRequestModel bookingUpdateRequestModel);
+        Task<BookingDetailResponseModel> GetBookingById(int id);
     }
 }
